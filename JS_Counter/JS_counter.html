@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<button type="button" class = 'incr'>INCREMENT</button>
+<body>
+    <h1 id = 'count'>0</h1>
+</body>
+<button type="button" class = 'decr'>DECREMENT</button>
+
+<script>
+    let val = 0
+
+    // <!-- Using dom to select the html webpage items -->
+    let numbox = document.getElementById("count");
+    let btnincr = document.querySelector('.incr')
+    let btndecr = document.querySelector('.decr')
+
+    // <!-- using event listener on buttons to perform actions -->
+    btnincr.addEventListener("click", () => {
+        val++;
+        numbox.textContent = val;
+    });
+
+    btndecr.addEventListener("click", () => {
+        if (val == 0){
+        }
+        else{
+        val--;
+        numbox.textContent = val;
+        }
+    });
+
+</script>
+</html>
