@@ -1,0 +1,40 @@
+{% include './common/base.html' %}
+{% load static %}
+
+{% block content %}
+  
+<section class="py-5 mt-5">
+    <div class="container py-5">
+      <div class="row mb-5">
+        <form  action="" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" name="Name"  placeholder="Username"
+              style="background-color: whitesmoke;">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Email Id"
+              style="background-color: whitesmoke;">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password"
+              style="background-color: whitesmoke;">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1" style="padding-top: 20px;">Confirm Password</label>
+            <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password"
+              style="background-color: whitesmoke;">
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+{% endblock content %}

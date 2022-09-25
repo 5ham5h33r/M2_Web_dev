@@ -1,0 +1,41 @@
+{% include './common/base.html' %}
+{% load static %}
+{% block content %}
+<center>    
+    <div id="myDIV" class="header" style = "padding-top: 100px">
+        <h2>My To Do List</h2>
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% if not user.is_authenticated %}
+        <h5><a href="{% url 'login' %}">Please Login first</a></h5>
+    {% else %}
+        <form action = "/addTodoItem/" method = "POST">
+            {% csrf_token %}
+            <input type="text" name="content" placeholder="Title...">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+      <br>
+      <ul id="myUL">
+        {% for i in all_items %}
+        <li style = "font-size: 30px; list-style-position: inside;"> {{i.content}} </li>
+        <form action="/deleteTodoItem/{{i.id}}/" method = "post">
+            {% csrf_token %}
+            <button type="submit" value="Delete" class="btn btn-primary">Delete</button>
+           
+        </form>  
+        <a href = "{% url 'updateitem' i.id %}">
+            <button class="btn btn-warning">Update</button>
+        </a>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+</center>
+
+ {% endblock %}

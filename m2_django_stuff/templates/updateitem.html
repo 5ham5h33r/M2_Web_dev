@@ -1,0 +1,21 @@
+{% include './common/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<center>
+<div style = "padding-top: 100px; padding-right: 100px; padding-left: 100px;">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <!-- Name:<input type="text" name = "name" placeholder=""><br>
+        Tech Stack:<input type="text"><br>
+        Description:<input type="text"><br>
+        Link:<input type="text"><br>
+        <input type="submit" value="Submit"> -->
+        <label>Name</label>
+        {% render_field form.content %} 
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</center>
+{% endblock %}
